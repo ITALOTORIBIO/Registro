@@ -30,6 +30,11 @@ namespace Registro.Controllers
             return View(productos);
         }
 
+        public IActionResult RegistroProductos()
+        {
+            return View();
+        }
+
         [HttpPost]
         public IActionResult RegistroProductos(Productos objProducto)
         {

@@ -1,19 +1,23 @@
-﻿<body style="background-color: #E7E7E7;">  
+﻿@{
+    Layout="_Layout_Home";
+}
 
-    <div style="margin-top: 100px;">
-        <div>
-            
-        </div>        
-        <div style="text-align: center; margin-top: 15px;">
-            <a asp-controller="Home" asp-action="Login"> 
-            <button type="button" class="btn btn-secondary">Let's start</button>
+<body style="background-color: #E7E7E7;">  
+
+    <div style="margin-top: 200px;">
+
+        <div style="text-align: center;">
+            <h2>Bienvenidos a SEIA STORE</h2>
+            <br>
+            <h3>¡Ingrese un nuevo producto para empezar!</h3>
+        </div> 
+
+        <div style="text-align: center; margin-top: 30px;">
+            <a asp-controller="Home" asp-action="RegistroProductos"> 
+            <button type="button" class="btn btn-secondary">Nuevo Producto</button>
             </a>
         </div>
         
-
-        <div style="text-align: center; margin-top: 15px;">
-            <a asp-controller="Index" asp-action="Index">Continuar como invitado</a>
-        </div>
     </div>
     
 </body>
