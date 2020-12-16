@@ -35,5 +35,8 @@ namespace Registro
         [Required(ErrorMessage="¡Por favor, Ingrese un nuevo usuario!")]
         [Display(Name="Usuario")]
         public string usuario { get; set; }
+
+        [Required]
+        public DateTime date { get; set; }
     }
 }

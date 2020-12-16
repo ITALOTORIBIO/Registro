@@ -26,8 +26,25 @@ namespace Registro.Controllers
         }
         public IActionResult ListaProductos()
         {
-            var productos = _context.Productos.ToList();
-            return View(productos);
+            List<Productos> lista= Listar();
+            return View(lista);
+        }
+
+        public List<Productos> Listar()
+        {
+            var listaProductos= _context.Productos.ToList();
+            List<Productos> lista= new List<Productos>();
+            DateTime limitDate= DateTime.Today.AddDays(-7);
+
+            foreach(Productos producto in listaProductos)
+            {
+                if(DateTime.Compare(producto.date,limitDate)>=0)
+                {
+                    lista.Add(producto);
+                }
+            }
+
+            return(lista);
         }
 
         public IActionResult RegistroProductos()
@@ -38,6 +55,7 @@ namespace Registro.Controllers
         [HttpPost]
         public IActionResult RegistroProductos(Productos objProducto)
         {
+            objProducto.date= DateTime.Today;
             if(ModelState.IsValid){
                 _context.Add(objProducto);
                 _context.SaveChanges();
